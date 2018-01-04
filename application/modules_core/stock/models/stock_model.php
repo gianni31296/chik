@@ -102,7 +102,7 @@ class Stock_model extends CI_Model {
         {
             $query = $this->db->get_where('view_purchase', array('item_id' => $item_id));
             $query = $this->db->query("SELECT * FROM ".$this->db->dbprefix('view_purchase') ." WHERE remain_quantity > 0 and item_id =".$item_id);
-            $row = $query->row_array();
+            //$row = $query->row_array();
             return $query->result_array();
         }
     
@@ -170,7 +170,7 @@ class Stock_model extends CI_Model {
             $data['sell_amount'] = $this->input->post('sell_price') * $this->input->post('quantity');
             $amount = $data['sell_amount'];
             $this->db->insert('sell_detail', $data);
-            $this->update_sell_amount($sell_id,$amount);
+            $var = $this->update_sell_amount($sell_id,$amount);
         }
 
     public function get_sell_details($sell_id) {

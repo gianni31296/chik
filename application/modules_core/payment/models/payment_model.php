@@ -11,17 +11,17 @@ class Payment_model extends CI_Model {
         $patient_id = $this->input->post('patient_id');
         $payment_type = $this->input->post('payment_type');
         $amount = $this->input->post('payment_amount');                          /* Advance or Due Amount */
-        $pay_amount = $this->input->post('pay_amount');
+        //$pay_amount = $this->input->post('pay_amount');
 
         if ($payment_type == 'advanced') {
 
-            $diff = $amount + $pay_amount;
+            //$diff = $amount + $pay_amount;
             $bill_id = null;
         }
         if ($payment_type == 'bill_payment') {
             $bill_id = $this->input->post('bill_id');
             $visit_id = $this->input->post('visit_id');
-            $diff = $amount - $pay_amount;
+            //$diff = $amount - $pay_amount;
 
             $data['visit_id'] = $visit_id;
         }
